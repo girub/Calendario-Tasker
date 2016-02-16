@@ -14,12 +14,15 @@ class Appmodel extends CI_Model
 
 	}
 
-	public function addTask($title,$details,$date){
+	public function addTask($title,$details,$date,$dateStart,$dateEnd){
 		
 		$task_details = array('task_id'=>mt_rand(1,9999999999),
 					   'task_name'=>$title,
 					   'task_details'=>$details,
-					   'date'=>$date
+					   'date'=>$date,
+					   'start'=>$dateStart,
+					   'end'=>$dateEnd
+                                           
 		             );
 		return $this->db->insert('task',$task_details);
 	}
@@ -31,15 +34,20 @@ class Appmodel extends CI_Model
 
 
 	public function deleteTask($id){
-		$this->db->where('task_id',$id);
+		
+                
+            $this->db->where('task_id',$id);
 	
-		return $this->db->delete('task');
-
+		
+                
+                //return $this->db->delete('task');
+                 $this->db->delete('task');
+                 var_dump($this->db->last_query());die();
 		
 	}
 
-	public function editTask($title,$details,$id){
-		$new_taskdetails=array('task_name'=>$title,'task_details'=>$details);
+	public function editTask($title,$details,$id,$dateStart,$dateEnd){
+		$new_taskdetails=array('task_name'=>$title,'task_details'=>$details,'start'=>$dateStart,'end'=>$dateEnd);
 		$this->db->where('task.task_id',$id);
 		return $this->db->update('task',$new_taskdetails);
 	}

@@ -32,11 +32,11 @@
 
                             <div class="form-group">
                                 <label>Event start</label>
-                                <input type="text" name="evtStart" class="form-control col-xs-3" />
+                                <input type="text" name="evtStart" id="evtStart" class="form-control col-xs-3" />
                             </div>
                             <div class="form-group">
                                 <label>Event end</label>
-                                <input type="text" name="evtEnd" class="form-control col-xs-3" />
+                                <input type="text" name="evtEnd" id="evtEnd" class="form-control col-xs-3" />
                             </div>
                         </form>
                     </div>
@@ -72,6 +72,16 @@
                                 <div class="col-sm-9">
                                     <textarea class="form-control" style="height:55px;" id="descr2" name="descr"></textarea>
                                 </div>
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                <label>Event start</label>
+                                <input type="text" name="evtStart2" id="evtStart2" class="form-control col-xs-3" />
+                            </div>
+                            <div class="form-group">
+                                <label>Event end</label>
+                                <input type="text" name="evtEnd2" id="evtEnd2" class="form-control col-xs-3" />
                             </div>
 
                         </form>

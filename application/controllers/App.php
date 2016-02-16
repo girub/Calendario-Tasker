@@ -28,15 +28,18 @@ class App extends CI_Controller{
 	//ajax event!
 	public function addtask(){
 
-		    $response = $this->appmodel->addTask($this->input->post('title'),
-			$this->input->post('description'),
-			$this->mydateconverter->convertDate($this->input->post('date')));
+                        $response = $this->appmodel->addTask($this->input->post('title'),
+                                $this->input->post('description'), 
+                                $this->mydateconverter->convertDate($this->input->post('date')),
+                                $this->input->post('dateStart'), 
+                                $this->input->post('dateEnd'));
 			echo $response;
 
 	}
 	//ajax event!
 
 	public function deletetask(){
+            //var_dump($this->input->get('id'));die();
 		$response = $this->appmodel->deleteTask($this->input->get('id'));
 		echo $response;
 	}
@@ -45,7 +48,7 @@ class App extends CI_Controller{
 	public function editask(){
 		$response = $this->appmodel->editTask($this->input->post('title'),
 			$this->input->post('description'),
-			$this->input->post('id')
+			$this->input->post('id'),$this->input->post('dateStart'),$this->input->post('dateEnd')
 			);
 			echo $response;
 	}
