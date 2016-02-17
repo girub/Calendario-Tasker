@@ -16,8 +16,7 @@ class Appmodel extends CI_Model
 
 	public function addTask($title,$details,$date,$dateStart,$dateEnd){
 		
-		$task_details = array('task_id'=>mt_rand(1,9999999999),
-					   'task_name'=>$title,
+		$task_details = array('task_name'=>$title,
 					   'task_details'=>$details,
 					   'date'=>$date,
 					   'start'=>$dateStart,
@@ -36,13 +35,12 @@ class Appmodel extends CI_Model
 	public function deleteTask($id){
 		
                 
-            $this->db->where('task_id',$id);
-	
-		
+            $this->db->where('id',$id);
                 
-                //return $this->db->delete('task');
-                 $this->db->delete('task');
-                 var_dump($this->db->last_query());die();
+            return $this->db->delete('task');
+                 
+             
+                 
 		
 	}
 

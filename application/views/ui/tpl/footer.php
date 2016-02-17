@@ -16,8 +16,7 @@
         var taskDescr;
         var taskID;
 
-//submit task button
-
+        //submit task button
         $("#btnAddTask").click(function () {
             taskTitle = $("#title").val();
             taskDescr = $("#descr").val();
@@ -44,8 +43,7 @@
 
         });
 
-//Edit task button
-
+        //Edit task button
         $("#btnUpdateTask").click(function () {
 
             taskTitle = $("#title2").val();
@@ -71,8 +69,6 @@
         });
 
         $("#btnDeleteTask").click(function () {
-
-
             bootbox.confirm("Are you sure you want to remove this task?", function (response) {
                 if (response == true) {
                     $.ajax({
@@ -168,11 +164,11 @@
             },
             eventClick: function (calEvent, jsEvent, view) {
                 //alert(calEvent.title, jsEvent, view);
-                //alert(calEvent.taskID, jsEvent, view);
+                alert(calEvent.id, jsEvent, view);
 
                 $('#fc_edit').click();
                 $('#title2').val(calEvent.title);
-                $("#task_id").val(calEvent.taskID);
+                $("#task_id").val(calEvent.id);
                 
                 $("#descr2").val(calEvent.taskDetails);
                 $("#evtStart2").val(calEvent.start.format('YYYY-MM-DD HH:mm:ss'));
@@ -192,7 +188,7 @@
             events: [
 <?php foreach ($tasks as $calendar_tasks): ?>
                     {
-                        taskID: "<?php echo $calendar_tasks['task_id']; ?>",
+                        id: "<?php echo $calendar_tasks['id']; ?>",
                         title: "<?php echo $calendar_tasks['task_name']; ?>",
                         taskDetails: "<?php echo $calendar_tasks['task_details']; ?>",
                         start: "<?php echo $calendar_tasks['start']; ?>",

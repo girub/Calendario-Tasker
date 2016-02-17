@@ -39,7 +39,7 @@ class App extends CI_Controller{
 	//ajax event!
 
 	public function deletetask(){
-            //var_dump($this->input->get('id'));die();
+           // var_dump($this->input->get('id'));die();
 		$response = $this->appmodel->deleteTask($this->input->get('id'));
 		echo $response;
 	}
