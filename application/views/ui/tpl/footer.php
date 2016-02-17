@@ -9,8 +9,21 @@
 <script type="text/javascript" src="<?php echo base_url('js/bootbox.js'); ?>"></script>
 
 
+<script type="text/javascript" src="<?php echo base_url('js/bootstrap-datetimepicker/bootstrap-datetimepicker.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css'); ?>"></script>
+
+
+
+
+
 <script>
+
     $(document).ready(function () {
+
+
+
+
+
 
         var taskTitle;
         var taskDescr;
@@ -60,8 +73,8 @@
                 data: 'title=' + taskTitle + '&description=' + taskDescr + '&id=' + taskID + '&dateStart=' + taskDateStart + '&dateEnd=' + taskDateEnd,
                 success: function (response) {
                     if (response == 1) {
-                            window.location = '<?php echo site_url() ?>';
-                        }
+                        window.location = '<?php echo site_url() ?>';
+                    }
                 }
             });
 
@@ -77,7 +90,7 @@
                         data: 'id=' + $("#task_id").val(),
                         success: function (response) {
                             if (response == 1) {
-                                  window.location = '<?php echo site_url() ?>';
+                                window.location = '<?php echo site_url() ?>';
                             }
                         }
                     });
@@ -103,6 +116,8 @@
 <script>
     $(window).load(function () {
 
+
+
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
@@ -122,20 +137,32 @@
             selectable: true,
             selectHelper: true,
             select: function (start, end, allDay) {
+                
+                $('.date input').datetimepicker({
+                    format: 'DD/MM/YYYY',
+                });
+
+                $('.date input').val(start.format('DD/MM/YYYY'));
+
+
+
                 $('#fc_create').click();
 
                 $('#evtStart').val(start.format('YYYY-MM-DD HH:mm:ss'));
                 $('#evtEnd').val(end.format('YYYY-MM-DD HH:mm:ss'));
-              
+//               
+//                $('#evtStart').datetimepicker("setDate", new Date(start));
+//                $('#evtEnd').datetimepicker("setDate", new Date(end));
+//                
+
+
                 started = start;
                 ended = end
                 $("#txtDate").val(start);
 
-              
-
 
                 $(".antosubmit").on("click", function () {
-                                        
+
                     var title = $("#title").val();
                     if (end) {
                         ended = end
@@ -164,16 +191,16 @@
             },
             eventClick: function (calEvent, jsEvent, view) {
                 //alert(calEvent.title, jsEvent, view);
-                alert(calEvent.id, jsEvent, view);
+                //alert(calEvent.id, jsEvent, view);
 
                 $('#fc_edit').click();
                 $('#title2').val(calEvent.title);
                 $("#task_id").val(calEvent.id);
-                
+
                 $("#descr2").val(calEvent.taskDetails);
                 $("#evtStart2").val(calEvent.start.format('YYYY-MM-DD HH:mm:ss'));
                 $("#evtEnd2").val(calEvent.end.format('YYYY-MM-DD HH:mm:ss'));
-                
+
                 categoryClass = $("#event_type").val();
 
                 $(".antosubmit2").on("click", function () {

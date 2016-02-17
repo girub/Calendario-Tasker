@@ -46,7 +46,7 @@ class Appmodel extends CI_Model
 
 	public function editTask($title,$details,$id,$dateStart,$dateEnd){
 		$new_taskdetails=array('task_name'=>$title,'task_details'=>$details,'start'=>$dateStart,'end'=>$dateEnd);
-		$this->db->where('task.task_id',$id);
+		$this->db->where('task.id',$id);
 		return $this->db->update('task',$new_taskdetails);
 	}
 }

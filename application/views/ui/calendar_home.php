@@ -16,6 +16,12 @@
 
 
 
+                            <div id="dataProgramma" class="input-group form-control date" style=" margin:0 auto;">
+                                <input id="paymentScheduleDate" name="paymentScheduleDate" type="text">
+                                <span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar" class="glyphicon glyphicon-calendar" style="position: absolute;right: 6px; top: 9px;"> </i> </span>
+                            </div>
+
+
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Task Title</label>
                                 <div class="col-sm-9">
@@ -32,7 +38,7 @@
 
                             <div class="form-group">
                                 <label>Event start</label>
-                                <input type="text" name="evtStart" id="evtStart" class="form-control col-xs-3" />
+                                <input type="text" data-provide="datepicker" name="evtStart" id="evtStart" class="form-control col-xs-3" />
                             </div>
                             <div class="form-group">
                                 <label>Event end</label>
@@ -49,6 +55,11 @@
         </div>
     </div>
 
+
+
+
+
+    <!--  Modale edit  -->
     <div id="CalenderModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -73,8 +84,8 @@
                                     <textarea class="form-control" style="height:55px;" id="descr2" name="descr"></textarea>
                                 </div>
                             </div>
-                            
-                            
+
+
                             <div class="form-group">
                                 <label>Event start</label>
                                 <input type="text" name="evtStart2" id="evtStart2" class="form-control col-xs-3" />
@@ -104,4 +115,5 @@
         </div>
     </div>
 </div>
+
 
