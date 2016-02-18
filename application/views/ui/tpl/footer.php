@@ -7,7 +7,7 @@
 <script type="text/javascript" src="<?php echo base_url('js/fullcalendar.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/tasker.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/bootbox.js'); ?>"></script>
-
+<script type="text/javascript" src="<?php echo base_url('js/lang-all.js'); ?>"></script>
 
 <script type="text/javascript" src="<?php echo base_url('js/bootstrap-datetimepicker/bootstrap-datetimepicker.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css'); ?>"></script>
@@ -99,6 +99,8 @@
         });
 
     });
+    
+    
 
 </script>
 
@@ -136,18 +138,42 @@
             defaultView: 'agendaWeek',
             selectable: true,
             selectHelper: true,
+            lang: 'it',
             select: function (start, end, allDay) {
                 
-                $('.date input').datetimepicker({
+                // setto la data del giorno
+                $('#paymentScheduleDate').datetimepicker({
                     format: 'DD/MM/YYYY',
                 });
+                
+                $('#paymentScheduleDate').val(start.format('DD/MM/YYYY'));
+                
+                
+                
+                 var dateNow = new Date();
+                //setto l'ora che ho selezionato
+                $('#datetimepicker3').datetimepicker({
+                        format: 'HH:mm',
+                        defaultDate:start.format('YYYY-MM-DD HH:mm:ss');                    
 
-                $('.date input').val(start.format('DD/MM/YYYY'));
+                         
+                });
+                
+                //$('#datetimepicker3').val(start.format('HH:mm'));
+                
+                //tm = $("#datetimepicker3").val();
+               // $('#datetimepicker3').val('xxxx');
 
+
+
+
+
+
+                
 
 
                 $('#fc_create').click();
-
+                
                 $('#evtStart').val(start.format('YYYY-MM-DD HH:mm:ss'));
                 $('#evtEnd').val(end.format('YYYY-MM-DD HH:mm:ss'));
 //               

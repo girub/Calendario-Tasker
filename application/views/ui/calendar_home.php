@@ -21,6 +21,27 @@
                                 <span class="add-on"> <i data-time-icon="icon-time" data-date-icon="icon-calendar" class="glyphicon glyphicon-calendar" style="position: absolute;right: 6px; top: 9px;"> </i> </span>
                             </div>
 
+                            
+                            
+                        <div class='col-sm-6'>
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker3'>
+                                    <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+             
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
 
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Task Title</label>
