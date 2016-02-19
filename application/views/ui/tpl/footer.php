@@ -21,16 +21,16 @@
     $(document).ready(function () {
 
 
-
-
-
-
         var taskTitle;
         var taskDescr;
         var taskID;
 
         //submit task button
         $("#btnAddTask").click(function () {
+            
+            
+            
+             $('#datetimepicker3').val('');
             taskTitle = $("#title").val();
             taskDescr = $("#descr").val();
             taskDate = $("#txtDate").val();
@@ -141,6 +141,18 @@
             lang: 'it',
             select: function (start, end, allDay) {
                 
+                
+                
+                //$('#datetimepicker3').val(start.format('HH:mm'));
+                
+                //tm = $("#datetimepicker3").val();
+               // $('#datetimepicker3').val('xxxx');
+              
+               
+
+                $('#fc_create').click();
+               
+                 
                 // setto la data del giorno
                 $('#paymentScheduleDate').datetimepicker({
                     format: 'DD/MM/YYYY',
@@ -148,31 +160,13 @@
                 
                 $('#paymentScheduleDate').val(start.format('DD/MM/YYYY'));
                 
-                
-                
-                 var dateNow = new Date();
                 //setto l'ora che ho selezionato
                 $('#datetimepicker3').datetimepicker({
                         format: 'HH:mm',
-                        defaultDate:start.format('YYYY-MM-DD HH:mm:ss');                    
-
-                         
+                        defaultDate:start.format('YYYY-MM-DD HH:mm:ss')                    
                 });
                 
-                //$('#datetimepicker3').val(start.format('HH:mm'));
-                
-                //tm = $("#datetimepicker3").val();
-               // $('#datetimepicker3').val('xxxx');
-
-
-
-
-
-
-                
-
-
-                $('#fc_create').click();
+              
                 
                 $('#evtStart').val(start.format('YYYY-MM-DD HH:mm:ss'));
                 $('#evtEnd').val(end.format('YYYY-MM-DD HH:mm:ss'));
